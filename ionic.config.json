@@ -1,0 +1,7 @@
+{
+  "name": "WalkApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
