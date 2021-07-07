@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WalkPage } from './walk.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { WalkPageRoutingModule } from './walk-routing.module';
 
@@ -13,7 +12,6 @@ import { WalkPageRoutingModule } from './walk-routing.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
     WalkPageRoutingModule
   ],
   declarations: [WalkPage]

@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('../walk/walk.module').then(m => m.WalkPageModule)
       },
       {
-        path: 'settings',
-        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
+        path: 'wall',
+        loadChildren: () => import('../wall/wall.module').then(m => m.WallPageModule)
       },
       {
         path: '',

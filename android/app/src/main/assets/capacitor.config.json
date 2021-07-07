@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "WalkApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

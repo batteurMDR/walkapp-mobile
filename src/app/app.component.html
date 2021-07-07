@@ -1,3 +1,8 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet *ngIf="userService.currentUser | async"></ion-router-outlet>
+  <div class="users" *ngIf="!(userService.currentUser | async)">
+    <div class="user" *ngFor="let user of (userService.availableUsers | async)" (click)="userService.setCurrentUser(user._id)">
+      {{user.firstName}} {{user.lastName}}
+    </div>
+  </div>
 </ion-app>

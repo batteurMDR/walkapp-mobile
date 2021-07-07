@@ -1,0 +1,19 @@
+.skins {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .skin {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: 1em 0;
+        text-align: center;
+
+        &.disabled {
+            opacity: .6;
+        }
+    }
+}

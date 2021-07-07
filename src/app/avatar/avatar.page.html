@@ -1,17 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Avatar ({{ (userService.getCurrentUserAsObservable() | async).pointsRemaining }} points restant)
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Avatar ({{ (userService.getCurrentUserAsObservable() | async).pointsRemaining }} points)</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <h1>Avatar actuel</h1>
+  <div class="skins">
+    <div class="skin" *ngIf="currentSkin">
+      <img class="image" [src]="currentSkin.image"/>
+      <span class="name">{{ currentSkin.name }}</span>
+      <span class="cost">{{currentSkin.cost}} points</span>
+    </div>
+  </div>
+  <h1>Mes avatars</h1>
+  <div class="skins">
+    <div class="skin" *ngFor="let skin of (skinService.getMySkins() | async)" (click)="setNewCurrentSkin(skin)">
+      <img class="image" [src]="skin.image"/>
+      <span class="name">{{ skin.name }}</span>
+      <span class="cost">{{skin.cost}} points</span>
+    </div>
+  </div>
+  <h1>Autres avatars</h1>
+  <div class="skins">
+    <div class="skin" *ngFor="let skin of (skinService.getOtherSkins() | async)" [class.disabled]="skin.cost > userService.getCurrentUser().pointsRemaining" (click)="buyThisSkin(skin)">
+      <img class="image" [src]="skin.image"/>
+      <span class="name">{{ skin.name }}</span>
+      <span class="cost">{{skin.cost}} points</span>
+    </div>
+  </div>
 </ion-content>
